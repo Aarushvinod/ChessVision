@@ -18,7 +18,7 @@ class ImageBoardRecognizer:
         self.board_recognizer = BoardRecognizerFullGame(pieces_name)
         cfg = get_cfg()
         point_rend.add_pointrend_config(cfg)
-        merge_path = Path(__file__).resolve().parents[1] / "external" / "detecron2" / "projects/PointRend/configs/InstanceSegmentation/pointrend_rcnn_X_101_32x8d_FPN_3x_coco.yaml"
+        merge_path = Path(__file__).resolve().parents[1] / "detecron2" / "projects/PointRend/configs/InstanceSegmentation/pointrend_rcnn_X_101_32x8d_FPN_3x_coco.yaml"
         cfg.merge_from_file(merge_path)
         cfg.MODEL.DEVICE = "cpu" if not GPU.is_available() else "cuda"
         cfg.MODEL.WEIGHTS = board_name
