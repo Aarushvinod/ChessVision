@@ -1,14 +1,15 @@
 import sys
 import cv2
 import chess.svg
-from src.BoardConstructionPipeline import ImageBoardRecognizer
 from wand.image import Image as imgW
 from wand.color import Color
+from pathlib import Path
+from src.BoardConstructionPipeline import ImageBoardRecognizer
 
 #Code for running the pipeline on a test image (one-shot image detection test file)
 #Pass image filename as command line argument
 
-image = cv2.imread(f"TestImages/{sys.argv[1]}")
+image = cv2.imread(f"tests/TestImages/{sys.argv[1]}")
 resized_image = cv2.resize(image, (1280, 1280))
 
 print('Reading in files')
@@ -47,7 +48,7 @@ pychess_board, table = Board_Recog.make_pychess_board(final_board, table = True,
 with imgW(blob=chess.svg.board(pychess_board).encode('utf-8'), format="svg") as img: # SVG --> PNG
     img.background_color = Color("white")
     img.alpha_channel = 'remove'
-    img.save(filename="chess_board.png")
+    img.save(filename="tests/chess_board.png")
 
 print('             Piece Detection Model Report\n')
 print(table + "\n")

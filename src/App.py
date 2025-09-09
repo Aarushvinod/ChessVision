@@ -1,5 +1,5 @@
 import cv2
-from BoardRecognizerFullGame import BoardRecognizerFullGame
+from src.BoardRecognizerFullGame import BoardRecognizerFullGame
 import chess
 import chess.svg
 import chess.pgn as out
@@ -10,7 +10,7 @@ import tkinter as tk
 from PIL import ImageTk, Image
 import threading
 import time
-from ChessLogic import make_next_move
+from src.ChessLogic import make_next_move
 
 #This file contains both the developer UI and all the detailed chess logic algorithms
 #Self correct algorithm is not implemented here (please check self_correct.py in miscallaneous for more info)

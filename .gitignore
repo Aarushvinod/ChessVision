@@ -1,1 +1,8 @@
 Miscallaneous/
+src/__pycache__/
+tests/__pycache__/
+tests/board_detection.jpg
+tests/chess_board.png
+tests/mask_prediction.jpg
+tests/piece_detection.jpg
+tests/yolo_output.jpg

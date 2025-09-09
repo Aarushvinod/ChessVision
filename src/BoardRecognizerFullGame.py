@@ -4,9 +4,9 @@ from ultralytics import YOLO
 import chess
 import chess.svg
 from tabulate import tabulate
-from Square import Square
+from src.Square import Square
 import torch.cuda as GPU
-    
+
 #Primary class holding Board Recognition Logic for Full Games from Starting Position
 #It is also equipped to handle Chess960
 
@@ -17,7 +17,7 @@ class BoardRecognizerFullGame:
         # 1. The piece detection model
         # 2. The target image on which all computations are run
         # 3. The homography matrix which will be used for the whole game
-        self.piece_detector: YOLO = YOLO(pieces_name)
+        self.piece_detector: YOLO = YOLO(f"src/models/{pieces_name}")
         self.piece_detector.to('cpu' if not GPU.is_available() else 'cuda')
         self.image: np.ndarray = None
         self.homography: np.ndarray = None
@@ -32,7 +32,7 @@ class BoardRecognizerFullGame:
 
     def run_piece_detection(self, confidence, **kwargs):
         result = self.piece_detector.predict(self.image, conf=confidence, verbose=False)
-        if kwargs.get('save'): result[0].save("yolo_output.jpg")
+        if kwargs.get('save'): result[0].save("tests/yolo_output.jpg")
         render_image = self.image.copy()
         if kwargs.get('save'):
             for box, _ in zip(result[0].boxes.xyxy.cpu().numpy(),
@@ -40,7 +40,7 @@ class BoardRecognizerFullGame:
                 x1, y1, x2, y2 = map(int, box)
                 cv2.rectangle(render_image, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
-            cv2.imwrite("piece_detection.jpg", render_image)
+            cv2.imwrite("tests/piece_detection.jpg", render_image)
         
         return result[0].boxes.xyxy.cpu().numpy(), result[0].boxes.cls.tolist()
 
@@ -119,7 +119,7 @@ class BoardRecognizerFullGame:
                     curr_output['Bounding Box'] = (int(x1), int(y1), int(x2), int(y2))
                     formatted_output[max_square] = curr_output
                 if kwargs.get('save'): cv2.fillConvexPoly(warped_frame, np.int32(cv2.perspectiveTransform(np.float32([box_poly]), self.homography)), (255, 0, 0))
-        if kwargs.get('save'): cv2.imwrite('mask_prediction.jpg', warped_frame)
+        if kwargs.get('save'): cv2.imwrite('tests/mask_prediction.jpg', warped_frame)
         return board if not kwargs.get('table') else (board, formatted_output)
 
     #Prints board in console given 8x8 matrix for board as input
