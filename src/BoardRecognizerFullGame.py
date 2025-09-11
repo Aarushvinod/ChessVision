@@ -18,6 +18,7 @@ class BoardRecognizerFullGame:
         # 2. The target image on which all computations are run
         # 3. The homography matrix which will be used for the whole game
         self.piece_detector: YOLO = YOLO(f"src/models/{pieces_name}")
+        self.piece_detector.fuse()
         self.piece_detector.to('cpu' if not GPU.is_available() else 'cuda')
         self.image: np.ndarray = None
         self.homography: np.ndarray = None
