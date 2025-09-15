@@ -1,7 +1,6 @@
 # ChessVision
 
-ChessVision is a computer vision–based software for extracting chess positions and full games from live video feeds and images.  
-This project was completed at **Thomas Jefferson High School for Science and Technology** under **Dr. Peter Gabor** as part of the *Computer Systems Senior Research* class.  
+ChessVision is a computer vision–based software for extracting chess positions and full games from live video feeds and images. This project was completed at **Thomas Jefferson High School for Science and Technology** under **Dr. Peter Gabor** as part of the *Computer Systems Senior Research* class.  
 Co-authors: **James Wright** and **Arnav Gupta**.
 
 ---
@@ -45,6 +44,8 @@ Please have Python >= 3.9 and git for desktop installed on your system.
 ### 1. Install Git LFS
 
 Follow the instructions to install **[Git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)**, then run the following command:
+
+```bash
 git lfs install
 
 ### 2. Clone the Repository
