@@ -67,7 +67,7 @@ source .venv/bin/activate   # On Linux/macOS
 ### 4. Install required python packages
 
 ```bash
-python -m pip install - r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ### 5. Install PyTorch and ImageMagick
