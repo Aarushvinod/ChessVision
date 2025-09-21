@@ -33,7 +33,8 @@ class BoardRecognizerFullGame:
 
     def run_piece_detection(self, confidence, **kwargs):
         result = self.piece_detector.predict(self.image, conf=confidence, verbose=False)
-        if kwargs.get('save'): result[0].save("tests/yolo_output.jpg")
+        if kwargs.get('save'): 
+            result[0].save("tests/yolo_output.jpg")
         render_image = self.image.copy()
         if kwargs.get('save'):
             for box, _ in zip(result[0].boxes.xyxy.cpu().numpy(),
@@ -54,7 +55,8 @@ class BoardRecognizerFullGame:
         width, height = 3, 7
         pattern_size = (width, height) # in format width, height
         ret, corners = cv2.findChessboardCorners(self.image, pattern_size)
-        if not ret: raise ValueError('findChessboardCorners() failed on the given image because the center block of 4x8 squares was occupied by pieces')
+        if not ret: 
+            raise ValueError('findChessboardCorners() failed on the given image because the center block of 4x8 squares was occupied by pieces')
         criteria = (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 30, 0.001)
         corners = cv2.cornerSubPix(cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY), corners, (5, 5), (-1, -1), criteria)
 
@@ -91,7 +93,8 @@ class BoardRecognizerFullGame:
         board = [[Square(corner_points[base:=i * 9 + j], corner_points[base+1], corner_points[base+9], corner_points[base+10]) for j in range(0, 8)] for i in range(0, 8)]
         large_piece_set = {1, 4, 7, 10}
         if kwargs.get('save'):
-            for x, y in corner_points: cv2.circle(warped_frame, (x, y), 3, (0, 255, 0), 3, cv2.LINE_AA, 0)
+            for x, y in corner_points: 
+                cv2.circle(warped_frame, (x, y), 3, (0, 255, 0), 3, cv2.LINE_AA, 0)
         formatted_output = dict() if kwargs.get('table') else None
         area_thresh = 160**2/16
 
@@ -119,8 +122,10 @@ class BoardRecognizerFullGame:
                     curr_output['Color'] = 'W' if piece.color else 'B'
                     curr_output['Bounding Box'] = (int(x1), int(y1), int(x2), int(y2))
                     formatted_output[max_square] = curr_output
-                if kwargs.get('save'): cv2.fillConvexPoly(warped_frame, np.int32(cv2.perspectiveTransform(np.float32([box_poly]), self.homography)), (255, 0, 0))
-        if kwargs.get('save'): cv2.imwrite('tests/mask_prediction.jpg', warped_frame)
+                if kwargs.get('save'): 
+                    cv2.fillConvexPoly(warped_frame, np.int32(cv2.perspectiveTransform(np.float32([box_poly]), self.homography)), (255, 0, 0))
+        if kwargs.get('save'): 
+            cv2.imwrite('tests/mask_prediction.jpg', warped_frame)
         return board if not kwargs.get('table') else (board, formatted_output)
 
     #Prints board in console given 8x8 matrix for board as input
