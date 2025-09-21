@@ -43,7 +43,7 @@ Please have Python >= 3.9 and git for desktop installed on your system.
 
 ### 1. Install Git LFS
 
-Follow the instructions to install **[Git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)**, then run the following command:
+Follow these instructions to install **[Git LFS](https://docs.github.com/en/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)**, then run the following command:
 
 ```bash
 git lfs install
@@ -72,8 +72,9 @@ python -m pip install -r requirements.txt
 
 ### 5. Install PyTorch and ImageMagick
 
-Follow the instructions to install **[ImageMagick](https://docs.wand-py.org/en/0.6.12/guide/install.html#install-imagemagick-on-windows)**
-Follow the instructions to install **[PyTorch](https://pytorch.org/get-started/locally/)**
+Follow these instructions to install **[ImageMagick](https://docs.wand-py.org/en/0.6.12/guide/install.html#install-imagemagick-on-windows)**
+
+Follow these instructions to install **[PyTorch](https://pytorch.org/get-started/locally/)**
 
 ### 6. (Optional) Install Detectron2
 
