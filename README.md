@@ -78,7 +78,7 @@ Follow these instructions to install **[PyTorch](https://pytorch.org/get-started
 
 ### 6. (Optional) Install Detectron2
 
-I made this step optional because the full game processing pipeline (the main feature works without it), and it is a real pain to install on Windows. I did get it working after some struggle in two different Windows systems though, so it is certainly possible. All the preliminary libraries that may be needed to install Detectron2 were already included in the requirements.txt, so if you run the command provided below, and correctly installed PyTorch in your system the installation should work. For more information on installation and potential issues, please see the **[Detetron2 Docs](https://detectron2.readthedocs.io/en/latest/tutorials/install.html)**
+I made this step optional because the full game processing pipeline (the main feature) works without Detectron2, and Detectron2 is a real pain to install on Windows. I did get it working on two different Windows systems though, so it is certainly possible. All the preliminary libraries that may be needed to install Detectron2 were already included in the requirements.txt, so if you run the command provided below, and correctly installed PyTorch in your system, the installation should work. For more information on installation and potential issues, please see the **[Detetron2 Docs](https://detectron2.readthedocs.io/en/latest/tutorials/install.html)**
 
 ```bash
 python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
