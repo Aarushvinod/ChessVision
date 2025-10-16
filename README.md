@@ -118,8 +118,7 @@ python -m src.app
 
 ## Demo
 
-Here is the link to the demo: **[ChessVision Presentation and Demo](https://drive.google.com/file/d/1Ng7sueOArYnz5TM0Bdjcjln7MtD9HLBP/view?usp=sharing&t=1431)** (I'm playing the moves while James narrates)
-The link is timestamped to the start of the demo, but the video is a full presentation of our pipeline architecture, so feel free to learn more about the internal implementation!
+Here is the link to the demo: **[ChessVision Presentation and Demo](https://drive.google.com/file/d/1Ng7sueOArYnz5TM0Bdjcjln7MtD9HLBP/view?usp=sharing&t=1431)** (I'm playing out the Opera game while James narrates). The link is timestamped to the start of the demo, but the video is a full presentation of our pipeline architecture, so feel free to learn more about the internal implementation!
 
 ## License
 
