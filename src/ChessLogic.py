@@ -66,17 +66,17 @@ def possible_moves_made(p1, p2):
     for ps in b2_pieces:
         if ps not in b1_pieces:
             p, s = ps
-            if p != None:
+            if p is not None:
                 piece = str(p2.piece_at(chess.parse_square(s))) # gives notation Nf3
                 for pc in b1_pieces:
                     p_init, s_init = pc
                     if str(p_init) == piece:
-                        if (s_init + s) in pred_moves and p2.piece_at(chess.parse_square(s_init)) == None:
+                        if (s_init + s) in pred_moves and p2.piece_at(chess.parse_square(s_init))  is None:
                             piece_square_empty.append(s_init + s)
                         elif (s_init + s) in pred_moves:
                             piece_square.append(s_init + s)
                     else: # checks if diff piece can move to the square
-                        if (s_init + s) in pred_moves and p2.piece_at(chess.parse_square(s_init)) == None:
+                        if (s_init + s) in pred_moves and p2.piece_at(chess.parse_square(s_init)) is None:
                             misclassified_list.append(s_init + s)
     if len(piece_square_empty) != 0:
         print("Chess Logic Status: Correct Piece to Correct Square, Init Square Empty")
@@ -105,7 +105,7 @@ def make_next_move(pychess_board, num_pieces, previous_board, root, status_text)
                 if mv in ["e8g8", "e8c8", "e1g1", "e1c1"]:
                     predicted_move = mv
                     castled = True
-            if castled == False:
+            if not castled:
                 if len(possible_moves) > 1:
                     move_lens = [(square_distance(move[0:2], move[2:4]), move) for move in possible_moves]
                     chosen = max(move_lens)
