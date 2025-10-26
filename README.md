@@ -78,7 +78,7 @@ Follow these instructions to install **[PyTorch](https://pytorch.org/get-started
 
 ### 6. (Optional) Install Detectron2
 
-I made this step optional because the full game processing pipeline (the main feature works without it), and it is a real pain to install on Windows. I did get it working after some struggle in two different Windows systems though, so it is certainly possible. All the preliminary libraries that may be needed to install Detectron2 were already included in the requirements.txt, so if you run the command provided below, and correctly installed PyTorch in your system the installation should work. For more information on installation and potential issues, please see the **[Detetron2 Docs](https://detectron2.readthedocs.io/en/latest/tutorials/install.html)**
+I made this step optional because the full game processing pipeline (the main feature) works without Detectron2, and Detectron2 is a real pain to install on Windows. I did get it working on two different Windows systems though, so it is certainly possible. All the preliminary libraries that may be needed to install Detectron2 were already included in the requirements.txt, so if you run the command provided below, and correctly installed PyTorch in your system, the installation should work. For more information on installation and potential issues, please see the **[Detetron2 Docs](https://detectron2.readthedocs.io/en/latest/tutorials/install.html)**
 
 ```bash
 python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
@@ -115,6 +115,10 @@ python -m src.app
 - **TJHSST Computer Systems Lab** - Research support
 
 ---
+
+## Demo
+
+Here is the link to the demo: **[ChessVision Presentation and Demo](https://drive.google.com/file/d/1Ng7sueOArYnz5TM0Bdjcjln7MtD9HLBP/view?usp=sharing&t=1431)** (I'm playing out the Opera game while James narrates). The link is timestamped to the start of the demo, but the video is a full presentation of our pipeline architecture, so feel free to learn more about the internal implementation!
 
 ## License
 
